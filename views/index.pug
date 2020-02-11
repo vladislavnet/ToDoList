@@ -1,0 +1,60 @@
+extends layout.pug
+
+block title
+    title TODO LIST | Main Page
+
+block titleHeader
+    h1 TODO LIST
+
+block content
+    .container-fluid
+        form(method="POST" , action="/add")
+            .form-row.justify-content-center
+                .form-group.col-sm-6
+                    label Title
+                    input.form-control(name="title", required)
+            .form-row.justify-content-center
+                .form-group.col-sm-3
+                    label Start date
+                    input.form-control(name="startDate", type="date" required)
+                .form-group.col-sm-3
+                    label End date
+                    input.form-control(name="endDate", type="date" required)
+            .form-row.justify-content-center
+                    label.col-sm-3 Status
+                    input.col-sm-3.form-control(name="status", type="checkbox")
+            .form-row.justify-content-center.mt-5
+                input.btn.btn-secondary.form-control.col-sm-6(type="submit", value="Add")
+
+        div
+            table.table.table-hover.table-theme-dark.mt-5
+                thead
+                    tr
+                        th #
+                        th Title
+                        th Start date
+                        th End date
+                        th Status
+                        th Actions
+                tbody
+                    - var className = ''
+
+                    each item in tasks
+                        if item.status == 'Finished'
+                            - className = 'task-success'
+                        else if item.status == 'In work'
+                            - className = 'task-no-success'
+                        else
+                            - className = ''
+
+                        tr(class=className)
+                            td
+                            td.name.box
+                                span #{item.title}
+                            td #{item.startDate}
+                            td #{item.endDate}
+                            td #{item.status}
+                            td
+                                div
+                                    a.btn.btn-secondary.btn-lg(href="#") &#9998;
+                                    a.btn.btn-secondary.btn-lg(href="#") &#128465;

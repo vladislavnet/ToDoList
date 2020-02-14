@@ -15,14 +15,14 @@ block content
                 .form-row.justify-content-center
                     .form-group.col-sm-6
                         label Title
-                        input.form-control(name="title", required)
+                        input.form-control(name="title", value=editItem.title, required)
                 .form-row.justify-content-center
                     .form-group.col-sm-3
                         label Start date
-                        input.form-control(name="startDate", type="date", value=dateToday, required)
+                        input.form-control(name="startDate", value=editItem.startDate, type="date", required)
                     .form-group.col-sm-3
                         label End date
-                        input.form-control(name="endDate", type="date", value=dateToday, required)
+                        input.form-control(name="endDate", value=editItem.endDate, type="date", required)
                 .form-row.justify-content-center
                         label.col-sm-3 Status
                         select.col-sm-3.form-control(name="status")

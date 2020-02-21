@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const routes = require("./routes");
+const checkRoute = require('./routes/CheckRoute');
 
 let port = 80;
 let app = express();
@@ -11,6 +12,8 @@ app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use("/", routes);
+
+app.use(checkRoute);
 
 app.listen(port, () => {
     console.info(`App run on http://localhost:${port}`);

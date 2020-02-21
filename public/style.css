@@ -27,3 +27,10 @@ tbody tr td{
 .table .task-no-success {
     background: #ffc107;
 }
+
+.error-text-center {
+    margin-top: 40%;
+    margin-left: 40%;
+    text-align: center;
+    font-size: 40px;
+}

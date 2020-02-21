@@ -171,3 +171,29 @@ exports.getLastTask = function() {
         }).close();
     });
 }
+
+exports.getRole = function({login, password}) {
+    return new Promise((resolve, reject) => {
+        let context = connection();
+        let query = `SELECT TypeUser.id FROM User
+                    INNER JOIN TypeUser ON TypeUser.id = User.idTypeUser
+                    WHERE login = ? AND password = ?
+                    LIMIT 1`;
+        let params = [ login, password];
+
+        context.all(query, params, (err, result) => {
+            if (err) {
+                reject(err);
+            } else {
+                if(result && result[0]) {
+                    result = result[0].id == 1
+                    ? 'User'
+                    : (result[0].id == 2 ? 'Admin' : null);
+                } else {
+                    result = null;
+                }
+                resolve(result);
+            }
+        }).close();
+    });
+}

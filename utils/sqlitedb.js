@@ -153,3 +153,21 @@ exports.addLog = function(message, date) {
         }).close();
     });
 }
+
+exports.getLastTask = function() {
+    return new Promise((resolve, reject) => {
+        let context = connection();
+        let query = `SELECT * FROM Task
+                     ORDER BY id DESC
+                     LIMIT 1`;
+
+        context.all(query, (err, result) => {
+            if(err) {
+                reject(err);
+            } else {
+                result = result ? result[0] : null;
+                resolve(result);
+            }
+        }).close();
+    });
+}

@@ -1,6 +1,6 @@
 
 const sqlite = require('sqlite3').verbose();
-const errorRoutes = require('./routes/error');
+//const errorRoutes = require('./routes/error');
 const path = 'todo.db';
 
 function connection(){

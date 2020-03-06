@@ -2,9 +2,8 @@
   "name": "todolist",
   "version": "1.0.0",
   "description": "ToDoList",
-  "main": "index.js",
-  "scripts": {
-  },
+  "main": "app.js",
+  "scripts": {},
   "author": "vladislavnet",
   "license": "ISC",
   "dependencies": {
@@ -12,5 +11,9 @@
     "express": "^4.17.1",
     "pug": "^2.0.4",
     "sqlite3": "^4.1.1"
+  },
+  "engines": {
+    "node": "13.6.0",
+    "npm": "6.13.6"
   }
 }

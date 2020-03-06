@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Document
-    body
-        div.error-text-center
-            p Ошибка подключения к Базе Данных
+extends layout.pug
 
-        footer.text-center
-            p &copy; 2020 Vladislav Panyukov
+block title
+    title TODO LIST | API
+
+block titleHeader
+    h1 ERROR
+
+block content
+    div.error-text-center
+        p Ошибка подключения к Базе Данных

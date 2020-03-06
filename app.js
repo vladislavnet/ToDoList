@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const routes = require("./routes");
 const checkRoute = require('./routes/CheckRoute');
 
-let port = process.env.PORT || 3000;
+let port = process.env.PORT || 5000;
 let app = express();
 
 app.set('view engine', 'pug');
